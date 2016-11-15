@@ -13,7 +13,8 @@
 test.EXE
 
 [test.EXE]
-test.prg
+test.prg                
+TShellExecuteInfo.prg
 ot4xb.lib
 
 
