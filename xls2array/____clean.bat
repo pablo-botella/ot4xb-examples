@@ -5,7 +5,9 @@ del *.obj
 del *.bak
 del *.exp
 del *.log
-del *.lib
-del *.res
 del *.exe
+del *.lib
+del *.inflated
+del *.deflated
+
 
