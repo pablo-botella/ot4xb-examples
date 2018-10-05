@@ -1,4 +1,4 @@
-SET "PROJECT_NAME=cpu-count"
+SET "PROJECT_NAME=test-list-processes"
 
 
 rem set "path=%asinet19sl1_folder_runtime%;%path%"

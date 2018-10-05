@@ -18,6 +18,10 @@ copy  %xpp19sl1_folder_runtime%\xppnat.dll
 copy  %xpp19sl1_folder_runtime%\xpprt1.dll
 copy  %xpp19sl1_folder_runtime%\xppsys.dll
 copy  %xpp19sl1_folder_runtime%\xppui1.dll
+copy  %xpp19sl1_folder_runtime%\xppui2.dll
+copy  %xpp19sl1_folder_runtime%\adac20B.dll
+copy  %xpp19sl1_folder_runtime%\adac20C.dll
+
 
 copy  %ot4xb_folder_runtime%\ot4xb.dll
 
