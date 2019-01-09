@@ -1,0 +1,28 @@
+[PROJECT]
+    COMPILE       = xpp
+    OBJ_DIR       = 
+    COMPILE_FLAGS = /n /m /w /wi /wl /p
+    DEBUG         = no
+    GUI           = yes
+    LINKER        = alink
+    LINK_FLAGS    = 
+    RC_COMPILE    = arc
+    RC_FLAGS      = -v
+    PROJECT.XPJ
+
+[PROJECT.XPJ]
+IpCfg.dll
+TestNCfg.exe
+
+[IpCfg.dll]
+IpCfg.prg
+IpCfg_Classes.prg
+IpCfg_Imports.prg
+IpCfg_Structs.prg
+ot4xb.lib
+            
+            
+[TestNCfg.exe]
+TestNCfg.prg
+IpCfg.lib
+ot4xb.lib
