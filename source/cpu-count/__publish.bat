@@ -56,6 +56,8 @@ echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md
 echo. >> ..\..\docs\%PROJECT_NAME%\index.md         
 
+type short.md >> ..\..\docs\%PROJECT_NAME%\index.md
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 type readme.md >> ..\..\docs\%PROJECT_NAME%\index.md
 
 
