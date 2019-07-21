@@ -61,3 +61,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/xls2array/*.zip
+/test-WNetEnumResourceA/*.zip
+/view-pdf/.vs/open-file-processes/v15/.suo
+.suo
+/__template/*.pbnprj-template
