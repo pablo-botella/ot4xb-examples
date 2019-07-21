@@ -1,19 +1,22 @@
 [PROJECT]
-    COMPILE       = xpp
-    OBJ_DIR       = 
-    COMPILE_FLAGS = /n /m /w /wi /wl
+    COMPILE       = xpp  /w /wi /wl /wu  /p /n /m
+    COMPILE_FLAGS = 
     DEBUG         = no
     GUI           = yes
     LINKER        = alink
-    LINK_FLAGS    = 
+    LINK_FLAGS    =
     RC_COMPILE    = arc
     RC_FLAGS      = -v
-    PROJECT.XPJ
+    project.xpj
 
-[PROJECT.XPJ]
-    ListProc.exe
-[ListProc.exe]
-ListProc.prg 
-DlgABrw.prg
-ot4xb.lib 
+[project.xpj]
+test-list-processes.exe
+
+[test-list-processes.exe]
+test-list-processes.prg      
+dlgabrw.prg
+ot4xb.lib
+
+
+
 

@@ -52,7 +52,7 @@ echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 
 echo download: [%PROJECT_NAME%.zip](%PROJECT_NAME%.zip) >> ..\..\docs\%PROJECT_NAME%\index.md
 echo. >> ..\..\docs\%PROJECT_NAME%\index.md
-echo * TOC {:toc} >> ..\..\docs\%PROJECT_NAME%\index.md
+
 
 echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md

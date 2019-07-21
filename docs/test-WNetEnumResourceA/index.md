@@ -4,7 +4,6 @@
  
 download: [test-WNetEnumResourceA.zip](test-WNetEnumResourceA.zip) 
  
-* TOC {:toc} 
  
 ------ 
           

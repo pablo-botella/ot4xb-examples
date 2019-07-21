@@ -1,0 +1,20 @@
+[PROJECT]
+    COMPILE       = xpp
+    OBJ_DIR       = 
+    COMPILE_FLAGS = /n /m /w /wi /wl
+    DEBUG         = no
+    GUI           = yes
+    LINKER        = alink
+    LINK_FLAGS    = 
+    RC_COMPILE    = arc
+    RC_FLAGS      = -v
+    PROJECT.XPJ
+
+[PROJECT.XPJ]
+    test-view-pdf.exe
+[test-view-pdf.exe]
+test-view-pdf.prg                   
+XbpViewPdf.prg
+install_createwindowex_hook.prg
+ot4xb.lib 
+

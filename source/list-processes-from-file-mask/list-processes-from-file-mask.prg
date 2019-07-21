@@ -36,7 +36,7 @@ static function must_include_this_file(  file_name_mapped  , pid , file_name )
 static data_folder := NIL
 static data_folder_unmapped := NIL
 if data_folder == NIL
-   data_folder := cPathAddBackslash( GetEnv("AllyDataFolder")  )
+   data_folder := cPathAddBackslash( GetEnv("data_folder")  )
    if empty(data_folder)
       data_folder := "*\"
       data_folder_unmapped := "*\"
@@ -62,10 +62,7 @@ end
 if lStrWildCmp( "*\alaska\*" , process_filename , .T. )
    return .T.
 end      
-if lStrWildCmp( "*\allyapps\*" , process_filename , .T. )
-   return .T.
-end      
-if lStrWildCmp( "*\asap\apps\*" , process_filename , .T. )
+if lStrWildCmp( "*\myprogram\*" , process_filename , .T. )
    return .T.
 end      
 return .F.

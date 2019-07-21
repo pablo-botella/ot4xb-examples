@@ -12,7 +12,7 @@
 
 [PROJECT.XPJ]
 IpCfg.dll
-TestNCfg.exe
+test-get-adapters-info.exe
 
 [IpCfg.dll]
 IpCfg.prg
@@ -22,7 +22,7 @@ IpCfg_Structs.prg
 ot4xb.lib
             
             
-[TestNCfg.exe]
-TestNCfg.prg
+[test-get-adapters-info.exe]
+test-get-adapters-info.prg
 IpCfg.lib
 ot4xb.lib

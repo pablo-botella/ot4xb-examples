@@ -8,4 +8,6 @@ del *.log
 del *.lib
 del *.res
 del *.exe
-del error*.json
+
+
+

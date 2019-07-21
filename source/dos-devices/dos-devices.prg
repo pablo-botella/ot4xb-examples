@@ -15,9 +15,6 @@ for n := 1 to nn
 next
 aEval( aa , {|dd| QOut( dd[1] , "  => " , dd[2] ) } )
 
-? ot4xb_hash():sha1("patata")
-? len( ot4xb_hash():sha1("patata") )
-
 
 inkey(0)
 
