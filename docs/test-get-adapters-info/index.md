@@ -7,6 +7,10 @@ download: [test-get-adapters-info.zip](test-get-adapters-info.zip)
  
 ------ 
           
+#test-get-adapters-info         
+  
+----  
+  
  
 ------ 
  

@@ -29,8 +29,12 @@ rem    echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 rem    echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md
 rem    echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 rem    
-FOR /f %%G IN ('dir /ad /b') DO (
-echo [%%G]^(%%G^) >> ..\docs\index.md        
+FOR /f %%G IN ('dir /ad /b') DO (            
+echo ## [%%G]^(%%G^) >> ..\docs\index.md        
+echo.  >> ..\docs\index.md        
+type %%G\readme.md  >> ..\docs\index.md        
+echo.  >> ..\docs\index.md        
+echo ----  >> ..\docs\index.md        
 echo [%%G]^(#%%G^) )
 rem                                               
 rem                                               
