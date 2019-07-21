@@ -1,4 +1,5 @@
 rem ____________________________________________________________________
+set "util_folder=c:\util"
 set "xpp19sl1_folder=c:\xpp19355\xppw32"
 set "xpp19sl1_folder_bin=c:\xpp19355\xppw32\bin"
 set "xpp19sl1_folder_include=c:\xpp19355\xppw32\include"
