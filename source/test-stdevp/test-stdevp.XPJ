@@ -1,0 +1,19 @@
+[PROJECT]
+    COMPILE       = xpp  /w /wi /wl /wu  /p /n /m
+    COMPILE_FLAGS = 
+    DEBUG         = no
+    GUI           = yes
+    LINKER        = alink
+    LINK_FLAGS    =
+    RC_COMPILE    = arc
+    RC_FLAGS      = -v
+    project.xpj
+
+[project.xpj]
+test-stdevp.exe
+
+[test-stdevp.exe]
+test-stdevp.prg
+ot4xb.lib
+
+
