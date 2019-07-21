@@ -50,7 +50,7 @@ echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md
 echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 
-echo download:  [%PROJECT_NAME%.zip](%PROJECT_NAME%.zip) >> ..\..\docs\%PROJECT_NAME%\index.md
+echo download: [%PROJECT_NAME%.zip](%PROJECT_NAME%.zip) >> ..\..\docs\%PROJECT_NAME%\index.md
 
 
 echo. >> ..\..\docs\%PROJECT_NAME%\index.md
@@ -66,7 +66,7 @@ echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 
 FOR /f %%G IN ('dir *.prg *.ch *.xpj *.arc /b') DO (        
 echo. >> ..\..\docs\%PROJECT_NAME%\index.md
-echo - [%%G](#%%G)  >> ..\..\docs\%PROJECT_NAME%\index.md )
+echo [%%G]^(#%%G^)  >> ..\..\docs\%PROJECT_NAME%\index.md )
                                            
                                            
 FOR /f %%G IN ('dir *.prg *.ch *.xpj *.arc /b') DO (        
@@ -80,6 +80,5 @@ type %%G  >> ..\..\docs\%PROJECT_NAME%\index.md
 echo. >> ..\..\docs\%PROJECT_NAME%\index.md      
 echo ``` >> ..\..\docs\%PROJECT_NAME%\index.md
 echo. >> ..\..\docs\%PROJECT_NAME%\index.md      
-echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md )
-                                           
+echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md)
                                            
