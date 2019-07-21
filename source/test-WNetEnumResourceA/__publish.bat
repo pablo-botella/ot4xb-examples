@@ -33,14 +33,52 @@ set "skip_parent_project_st=1"
 
 
 set "path=%util_folder%;%path%"
+%~d0
+cd %~dp0
 del %PROJECT_NAME%.zip
 7za.exe a %PROJECT_NAME%.zip *.prg *.ch *.xpj *.md *.arc     
-md  %~dp0..\..\docs\%PROJECT_NAME%
-del %~dp0..\..\docs\%PROJECT_NAME%\*.*  /Y
-copy %~dp0%PROJECT_NAME%.zip   %~dp0..\..\docs\%PROJECT_NAME%\
-copy %~dp0%*.md   %~dp0..\..\docs\%PROJECT_NAME%\
-copy %~dp0%*.png  %~dp0..\..\docs\%PROJECT_NAME%\
-del %PROJECT_NAME%.zip
+md  ..\..\docs\%PROJECT_NAME%
+del ..\..\docs\%PROJECT_NAME%\*.*  /Q
+copy %PROJECT_NAME%.zip   ..\..\docs\%PROJECT_NAME%\
+copy *.md   ..\..\docs\%PROJECT_NAME%\
+copy *.png  ..\..\docs\%PROJECT_NAME%\
+del %PROJECT_NAME%.zip  
+                                         
+                                         
+echo # %PROJECT_NAME%  > ..\..\docs\%PROJECT_NAME%\index.md
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md
+echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md
+
+echo [%PROJECT_NAME%.zip](%PROJECT_NAME%.zip) >> ..\..\docs\%PROJECT_NAME%\index.md
 
 
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md
+echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md         
 
+type readme.md >> ..\..\docs\%PROJECT_NAME%\index.md
+
+
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md
+echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md
+
+FOR /f %%G IN ('dir *.prg *.ch *.xpj *.arc /b') DO (        
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md
+echo ## %%G  >> ..\..\docs\%PROJECT_NAME%\index.md )
+                                           
+                                           
+FOR /f %%G IN ('dir *.prg *.ch *.xpj *.arc /b') DO (        
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md
+echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md
+echo ## %%G  >> ..\..\docs\%PROJECT_NAME%\index.md
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md      
+echo ``` >> ..\..\docs\%PROJECT_NAME%\index.md
+type %%G  >> ..\..\docs\%PROJECT_NAME%\index.md
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md      
+echo ``` >> ..\..\docs\%PROJECT_NAME%\index.md
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md      
+echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md )
+                                           
