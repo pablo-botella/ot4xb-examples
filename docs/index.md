@@ -1,4 +1,4 @@
-#test-WNetEnumResourceA  
+# test-WNetEnumResourceA  
  
 ------ 
  
@@ -6,16 +6,21 @@
  
 ------ 
           
-readme.md 
- 
+
+
+here the description 
 ------ 
  
  
+## test-WNetEnumResourceA.prg   
+ 
+## test-WNetEnumResourceA.XPJ   
+ 
 ------ 
  
-##test-WNetEnumResourceA.prg  
+## test-WNetEnumResourceA.prg  
        
-```prg 
+``` 
 // example from: https://docs.microsoft.com/en-us/windows/win32/wnet/enumerating-network-resources
 //----------------------------------------------------------------------------------------------------------------------
 #include "ot4xb.ch"
@@ -198,13 +203,13 @@ return cc
        
 ``` 
        
------- 
+------  
  
 ------ 
  
-##test-WNetEnumResourceA.XPJ  
+## test-WNetEnumResourceA.XPJ  
        
-```xpj 
+``` 
 [PROJECT]
     COMPILE       = xpp  /w /wi /wl /wu  /p /n /m
     COMPILE_FLAGS = 
@@ -229,4 +234,4 @@ ot4xb.lib
        
 ``` 
        
------- 
+------  
