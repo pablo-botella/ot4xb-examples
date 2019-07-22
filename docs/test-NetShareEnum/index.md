@@ -7,10 +7,16 @@ download: [test-NetShareEnum.zip](test-NetShareEnum.zip)
  
 ------ 
  
+Example using UNICODEDYNSTR as structure memeber ,  gwst:_link_(<pt>,.F.) and GwstArrayNext(<st>)
 
 ------ 
  
 # test-NetShareEnum"
+----
+Xbase++ version from the C++ example at the bottom of 
+[https://docs.microsoft.com/en-us/windows/win32/api/lmshare/nf-lmshare-netshareenum](https://docs.microsoft.com/en-us/windows/win32/api/lmshare/nf-lmshare-netshareenum)
+----
+usage: test-NetShareEnum.exe %COMPUTERNAME%
 ----
 
  
@@ -26,6 +32,8 @@ download: [test-NetShareEnum.zip](test-NetShareEnum.zip)
 ## test-NetShareEnum.prg  
  
 ``` 
+
+//----------------------------------------------------------------------------------------------------------------------
 #include "ot4xb.ch"              
 #include "WinError_constants.ch"
 //----------------------------------------------------------------------------------------------------------------------
@@ -115,7 +123,9 @@ end
 ? "press a key to exit ... "
 inkey(0)
 @shell32: ShellExecuteA(0,"open",cPathCombine(cAppPath(),"salida.txt"),0,0,3)
-return 
+return
+//----------------------------------------------------------------------------------------------------------------------
+  
 ``` 
  
 ------ 
