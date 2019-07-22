@@ -1,0 +1,30 @@
+
+NETRESOURCE[1] Scope:  2  - GLOBALNET
+NETRESOURCE[1] Type:  0  - ANY
+NETRESOURCE[1] DisplayType:  6  - NETWORK
+NETRESOURCE[1] Usage: 0x80000002 =  container 
+NETRESOURCE[1] Localname: (null)
+NETRESOURCE[1] Remotename: Microsoft Terminal Services
+NETRESOURCE[1] Comment: (null)
+NETRESOURCE[1] Provider: Microsoft Terminal Services
+------------------------------------------------------------
+
+NETRESOURCE[2] Scope:  2  - GLOBALNET
+NETRESOURCE[2] Type:  0  - ANY
+NETRESOURCE[2] DisplayType:  6  - NETWORK
+NETRESOURCE[2] Usage: 0x80000002 =  container 
+NETRESOURCE[2] Localname: (null)
+NETRESOURCE[2] Remotename: Microsoft Windows Network
+NETRESOURCE[2] Comment: (null)
+NETRESOURCE[2] Provider: Microsoft Windows Network
+------------------------------------------------------------
+
+NETRESOURCE[3] Scope:  2  - GLOBALNET
+NETRESOURCE[3] Type:  0  - ANY
+NETRESOURCE[3] DisplayType:  6  - NETWORK
+NETRESOURCE[3] Usage: 0x80000002 =  container 
+NETRESOURCE[3] Localname: (null)
+NETRESOURCE[3] Remotename: Web Client Network
+NETRESOURCE[3] Comment: (null)
+NETRESOURCE[3] Provider: Web Client Network
+------------------------------------------------------------

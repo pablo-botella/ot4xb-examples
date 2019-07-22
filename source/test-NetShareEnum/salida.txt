@@ -1,0 +1,11 @@
+
+SHARE                | LOCAL PATH                     | USAGE    | DESCRIPTOR
+-------------------------------------------------------------------------------
+ADMIN$               | C:\WINDOWS                     | 00000000 | No 
+C$                   | C:\                            | 00000000 | No 
+CCC                  | C:\                            | 00000000 | Yes
+F$                   | F:\                            | 00000000 | No 
+FFF                  | F:\                            | 00000000 | Yes
+IPC$                 |                                | 00000000 | No 
+print$               | C:\Windows\system32\spool\driv | 00000000 | Yes
+V$                   | V:\                            | 00000000 | No 
