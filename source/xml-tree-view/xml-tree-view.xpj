@@ -11,8 +11,8 @@
     PROJECT.XPJ
 
 [PROJECT.XPJ]
-TestXmlLite.exe
-[TestXmlLite.exe]
+xml-tree-view.exe
+[xml-tree-view.exe]
 TestXmlLite.prg
 XmlLite.prg
 TXmlArray.prg

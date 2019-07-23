@@ -1,4 +1,4 @@
-SET "PROJECT_NAME=TestXmlLite"
+SET "PROJECT_NAME=xml-tree-view"
 
 
 rem set "path=%asinet19sl1_folder_runtime%;%path%"

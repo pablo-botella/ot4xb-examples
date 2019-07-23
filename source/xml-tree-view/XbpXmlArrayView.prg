@@ -126,12 +126,16 @@ INLINE METHOD SetHtml( cHtml )
        return NIL
        // ---------------------------------------------------------------------------------
 INLINE METHOD resize()
-       local rc := AFill(Array(4),0)
-       @user32:GetClientRect(::GetHWnd(),@rc)
-       ::oTree:SetPosAndSize({0,rc[4]/2},{rc[3],(rc[4]/2)-2})
-       ::DrawingArea:SetPosAndSize({0,0},{rc[3],rc[4]/2})
-       @user32:GetClientRect(::DrawingArea:GetHWnd(),@rc)
-       delegated_eval( {|| @user32:SetWindowPos(::hWndHtml,0,0,0,rc[3],rc[4],0x254)})
+       local rc := AFill(Array(4),0)           
+       static lWorking := .F.
+       if !lWorking
+       	  lWorking := .T.
+          @user32:GetClientRect(::GetHWnd(),@rc)
+          ::oTree:SetPosAndSize({0,rc[4]/2},{rc[3],(rc[4]/2)-2})
+          ::DrawingArea:SetPosAndSize({0,0},{rc[3],rc[4]/2})
+          @user32:GetClientRect(::DrawingArea:GetHWnd(),@rc)
+          delegated_eval( {|| @user32:SetWindowPos(::hWndHtml,0,0,0,rc[3],rc[4],0x254) , lWorking := .F.})
+       end
        return NIL
        // ---------------------------------------------------------------------------------
 INLINE METHOD Run(lMain)
