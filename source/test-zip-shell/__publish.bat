@@ -34,15 +34,15 @@ set "path=%util_folder%;%path%"
 %~d0
 cd %~dp0
 del %PROJECT_NAME%.zip
-7za.exe a %PROJECT_NAME%.zip *.prg *.ch *.xpj *.md *.arc     
+7za.exe a %PROJECT_NAME%.zip *.prg *.ch *.xpj *.md *.arc
 md  ..\..\docs\%PROJECT_NAME%
 del ..\..\docs\%PROJECT_NAME%\*.*  /Q
 copy %PROJECT_NAME%.zip   ..\..\docs\%PROJECT_NAME%\
 copy *.md   ..\..\docs\%PROJECT_NAME%\
 copy *.png  ..\..\docs\%PROJECT_NAME%\
-del %PROJECT_NAME%.zip  
-                                         
-                                         
+del %PROJECT_NAME%.zip
+
+
 echo # %PROJECT_NAME%  > ..\..\docs\%PROJECT_NAME%\index.md
 echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md
@@ -54,8 +54,10 @@ echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 
 echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md
-echo. >> ..\..\docs\%PROJECT_NAME%\index.md         
-
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md
+type short.md >> ..\..\docs\%PROJECT_NAME%\index.md
+echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 type readme.md >> ..\..\docs\%PROJECT_NAME%\index.md
 
 
@@ -63,21 +65,20 @@ echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md
 echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 
-FOR /f %%G IN ('dir *.prg *.ch *.xpj *.arc /b') DO (        
+FOR /f %%G IN ('dir *.prg *.ch *.xpj *.arc /b') DO (
 echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 echo [%%G]^(#%%G^)  >> ..\..\docs\%PROJECT_NAME%\index.md )
-                                           
-                                           
-FOR /f %%G IN ('dir *.prg *.ch *.xpj *.arc /b') DO (        
+
+
+FOR /f %%G IN ('dir *.prg *.ch *.xpj *.arc /b') DO (
 echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md
 echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 echo ## %%G  >> ..\..\docs\%PROJECT_NAME%\index.md
-echo. >> ..\..\docs\%PROJECT_NAME%\index.md      
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 echo ``` >> ..\..\docs\%PROJECT_NAME%\index.md
 type %%G  >> ..\..\docs\%PROJECT_NAME%\index.md
-echo. >> ..\..\docs\%PROJECT_NAME%\index.md      
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 echo ``` >> ..\..\docs\%PROJECT_NAME%\index.md
-echo. >> ..\..\docs\%PROJECT_NAME%\index.md      
+echo. >> ..\..\docs\%PROJECT_NAME%\index.md
 echo ------ >> ..\..\docs\%PROJECT_NAME%\index.md)
-                                           

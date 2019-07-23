@@ -1,3 +1,33 @@
+# test-zip-shell  
+ 
+------ 
+ 
+download: [test-zip-shell.zip](test-zip-shell.zip) 
+ 
+ 
+------ 
+ 
+Using windows shell api to create zip files
+ 
+------ 
+ 
+#test-zip-shell
+  
+----  
+  
+ 
+------ 
+ 
+ 
+[test-zip-shell.prg](#test-zip-shell.prg)   
+ 
+[test-zip-shell.XPJ](#test-zip-shell.XPJ)   
+ 
+------ 
+ 
+## test-zip-shell.prg  
+ 
+``` 
 #include "ot4xb.ch"
 #xtranslate SAFE_RELEASE( <v> ) => (<v> := iif(Empty(<v>),0,(IFpQCall(2,"__sl__sl",<v>),0)))
 #xtranslate L(<c>)  => cSzAnsi2Wide(<c>)
@@ -5,7 +35,7 @@
 proc dbesys;return
 //----------------------------------------------------------------------------------------------------------------------
 proc main                                                 
-local cSrcFolder := cPathCombine( cAppPath() , "test")
+local cSrcFolder := cPathCombine( cAppPath() )
 local cDstZip    := cPathCombine( cAppPath() , "test.zip")
 ? add_folder_to_zip(cSrcFolder,cDstZip,.T.)
 inkey(0)
@@ -35,3 +65,36 @@ if ( _dh_CreateObject(L("shell.application"),0,@piShell ) >= 0 )
    SAFE_RELEASE(piShell)
 end
 return (result  >= 0 )
+ 
+``` 
+ 
+------ 
+ 
+------ 
+ 
+## test-zip-shell.XPJ  
+ 
+``` 
+[PROJECT]
+    COMPILE       = xpp  /w /wi /wl /wu  /p /n /m
+    COMPILE_FLAGS = 
+    DEBUG         = no
+    GUI           = yes
+    LINKER        = alink
+    LINK_FLAGS    =
+    RC_COMPILE    = arc
+    RC_FLAGS      = -v
+    project.xpj
+
+[project.xpj]
+test-zip-shell.EXE
+
+[test-zip-shell.EXE]
+test-zip-shell.prg
+ot4xb.lib
+
+
+ 
+``` 
+ 
+------ 

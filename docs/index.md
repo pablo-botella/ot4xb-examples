@@ -102,6 +102,12 @@ Example using `UNICODEDYNSTR` as structure member ,  `gwst:_link_(<pt>,.F.)` and
  
           
 ----          
+## [test-zip-shell](test-zip-shell)         
+          
+Using windows shell api to create zip files
+ 
+          
+----          
 ## [testing-ShellExecuteEx](testing-ShellExecuteEx)         
           
  
