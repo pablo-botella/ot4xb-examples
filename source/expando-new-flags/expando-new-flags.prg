@@ -165,7 +165,7 @@ aa[130] := nOr( EXPANDO_FORMAT_DEBUG , 	EXPANDO_FORMAT_PRETTY  , EXPANDO_FORMAT_
 aa[131] := nOr( EXPANDO_FORMAT_DEBUG , 	EXPANDO_FORMAT_PRETTY  , EXPANDO_FORMAT_ND_MINIMAL , EXPANDO_FORMAT_ND_PRECISSION( 14 )  ) 
 aa[132] := nOr( EXPANDO_FORMAT_DEBUG , 	EXPANDO_FORMAT_PRETTY  , EXPANDO_FORMAT_ND_MINIMAL , EXPANDO_FORMAT_ND_PRECISSION( 15 )  )
 lMakePath( cPathCombine(cAppPath(),"salida"))
-aeval(aa , {|flags| QOut( lMemoWrite( flag2name(flags),   oo:json_escape_self(flags) ) , "   " , flag2name(flags) ) } )
+aeval(aa , {|flags| QOut( lMemoWrite( flag2name(flags),   oo:json_escape_self(flags) , 3 ) , "   " , flag2name(flags) ) } )
 ? "done"
 inkey(0)
    
