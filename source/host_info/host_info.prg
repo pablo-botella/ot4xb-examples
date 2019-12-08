@@ -78,7 +78,10 @@ while lAnd( p_next )
    s:_link_(p_next,.F.)
    p_next := s:ai_next
    node := info:new()
-   aadd( info:list , node)     
+   aadd( info:list , node)      
+   if !empty( s:cCanonName )
+      node:name := s:cCanonName
+   end
    if s:ai_family == AF_UNSPEC
       node:family := "UNSPEC"
    elseif s:ai_family == AF_INET
