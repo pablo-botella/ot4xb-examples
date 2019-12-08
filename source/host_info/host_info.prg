@@ -40,7 +40,7 @@ function host_info( cPath )
 local info := _ot4xb_expando_():new()
 local s    := wapist_addrinfo():new()
 local p_info,buffer,cb,node
-local p_next,dw        
+local p_next,dw,w1,w2        
 
 info:path := __vstr(cPath,"")
 if empty( cPath )
@@ -94,7 +94,11 @@ while lAnd( p_next )
          node:error_code := dw
          node:error_description :=  cFmtSysMsg(dw)
       end
-      node:ip_v4 := TrimZ( buffer )
+      node:ip_v4 := TrimZ( buffer )   
+      w1:= PeekWordNet(s:ai_addr,4)
+      w2:= PeekWordNet(s:ai_addr,6)
+      node:to_ip_v6 := cPrintf( "0:0:0:0:0:ffff:%4.04x:%4.04x", w1 ,w2 ) 
+      node:to_ip_v6_short := ":::::ffff:" + iif( lAnd(w1), cPrintf('%x:',w1) , ':') +  iif( lAnd(w2),cPrintf('%x',w2),'')
    elseif s:ai_family == AF_INET6
       node:family := "IPv6"
       cb := 1024
