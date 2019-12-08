@@ -38,8 +38,7 @@ return
 //----------------------------------------------------------------------------------------------------------------------
 function host_info( cPath )
 local info := _ot4xb_expando_():new()
-local s    := wapist_addrinfo():new()
-local p_info,buffer,cb,node
+local s,p_info,buffer,cb,node
 local p_next,dw,w1,w2        
 
 info:path := __vstr(cPath,"")
@@ -56,7 +55,7 @@ info:host := tokenize(cPath , "\" )[3]
 buffer := ChrR(0,1024)
 @ws2_32:["__sl__us__pt"]:WSAStartup( MAKELONG(2,2) , @buffer )
 
-
+s    := wapist_addrinfo():new()
 s:ai_flags       := nOr(AI_CANONNAME,AI_ALL,AI_V4MAPPED,AI_NON_AUTHORITATIVE,AI_RETURN_PREFERRED_NAMES,AI_FILESERVER)
 s:ai_family      := AF_UNSPEC
 s:ai_socktype    := SOCK_STREAM
