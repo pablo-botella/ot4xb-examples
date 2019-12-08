@@ -75,7 +75,7 @@ if empty( cPath )
    return info
 end
 
-if !lStrWildCmpEx( "^\\\\[^\\]+\\.*" , info:path , 0x201 )
+if !lStrWildCmpEx( "\\?*\*" , info:path , 1 )
    info:result := .F.
    info:reason := "The provided path have not contain host information"
    return info
