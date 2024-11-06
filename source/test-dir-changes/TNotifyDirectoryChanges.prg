@@ -26,6 +26,7 @@ EXPORTED:
        VAR thread_loop
        VAR pdw_outstanding_requests
        VAR worker_list
+       VAR b_on_post_notyfy
        // ---------------------------------------------------------------------------------
 INLINE METHOD init()
        ::Thread:init()
@@ -101,15 +102,21 @@ INLINE METHOD RequestTermination()
        ::PostCB({|| AEval( ::worker_list , cb ) } )
        return NIL
        // ---------------------------------------------------------------------------------
-INLINE METHOD PostNotify(reason,name)
-       local cReason := "Unknown Reason:"
-       if reason == 1; cReason := "Added       :"
-       elseif reason == 2; cReason := "Removed     :"
-       elseif reason == 3; cReason := "Modified    :"
-       elseif reason == 4; cReason := "Renamed Old :"
-       elseif reason == 5; cReason := "Renamed New :"
+INLINE METHOD PostNotify(reason,name,base)
+       //local cReason := ""
+       //if reason == 1; cReason := "Added       :"
+       //elseif reason == 2; cReason := "Removed     :"
+       //elseif reason == 3; cReason := "Modified    :"
+       //elseif reason == 4; cReason := "Renamed Old :"
+       //elseif reason == 5; cReason := "Renamed New :"
+       //else              ; cReason := cPrintf("%i :" , reason)
+       //end
+       //? cPrintf("%s -> %s[%s]",base , cReason , name)
+       if __vblock(::b_on_post_notyfy) != NIL
+          eval( ::b_on_post_notyfy , reason,name,base )
        end
-       ? cPrintf("%s[%s]",cReason , name )
+       
+       
        return NIL
        // ---------------------------------------------------------------------------------
 ENDCLASS
@@ -130,7 +137,7 @@ EXPORTED:
        VAR last_error
        // ---------------------------------------------------------------------------------
 INLINE CLASS METHOD initclass
-       _psz_callback_ := _xgrab("_callback_")
+       DEFAULT _psz_callback_ := _xgrab("_callback_")
        return Self
        // ---------------------------------------------------------------------------------
 INLINE METHOD init( server , directory_name, watch_flags , b_watch_subtree , buffer_size )
@@ -197,12 +204,6 @@ INLINE METHOD Destroy()
        end
        return NIL
        // ---------------------------------------------------------------------------------
-INLINE METHOD swap_buffers()
-       local p := ::current_buffer
-       ::current_buffer := ::next_buffer
-       ::next_buffer := p
-       return NIL
-       // ---------------------------------------------------------------------------------
 INLINE METHOD _create_callback_()
        local p__cmcv :=  nGetProcAddress(gethot4xb(),"?_conMCallVoid@@YAXPAUMomHandleEntry@@PADJJJ@Z")
        local pSelf   :=  _var2con( Self )
@@ -238,7 +239,7 @@ INLINE METHOD _destroy_callback_(cbk)
        cbk := 0
        return NIL
        // ---------------------------------------------------------------------------------
-INLINE METHOD _callback_(error_code,bytes_transfered,ovl)
+INLINE METHOD _callback_(error_code,bytes_transfered)//,ovl)
        if( error_code == ERROR_OPERATION_ABORTED )
           ::Destroy()
           ::server:DecrementOutstandingRequests()
@@ -246,7 +247,7 @@ INLINE METHOD _callback_(error_code,bytes_transfered,ovl)
        end
        if bytes_transfered == 0 ; return NIL ; end
        _assert_m_(  bytes_transfered >= 14,-1, cPrintf("bytes_transfered (%i) < 14",bytes_transfered ) )
-       ::swap_buffers()
+       _bcopy(::current_buffer,::next_buffer,bytes_transfered)
        ::begin_read()
        ::process_buffer()
        return NIL
@@ -254,17 +255,15 @@ INLINE METHOD _callback_(error_code,bytes_transfered,ovl)
 INLINE METHOD process_buffer()
        local p := ::current_buffer
        local ah
-
        while( p != 0 )
           ah := PeekDWord(p,,3)
-          ::server:PostNotify(ah[2], cSzWide2Ansi(PeekStr(p,12,ah[3]) + ChrR(0,2)) )
+          ::server:PostNotify(ah[2], cSzWide2Ansi(PeekStr(p,12,ah[3]) + ChrR(0,2)) , ::directory_name )
           p := iif( ah[1] > 0, p+ah[1],0)
        end
        return NIL
        // ---------------------------------------------------------------------------------
 INLINE METHOD begin_read()
        local cbr := 0
-       _bset(::ovl,0,32)
        return @kernel32:ReadDirectoryChangesW( ::directory_handle,::next_buffer,::buffer_size,;
                                                ::b_watch_subtree,::watch_flags,@cbr,::ovl,::cbk)
        // ---------------------------------------------------------------------------------

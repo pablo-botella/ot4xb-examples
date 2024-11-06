@@ -5,10 +5,11 @@
 proc dbesys; return
 //----------------------------------------------------------------------------------------------------------------------
 proc main( cDir )
-local odc := TNotifyDirectoryChanges():New()
+local odc := TNotifyDirectoryChanges():New()  
+odc:b_on_post_notyfy := {|reason,name,base | Qout( reason,"|",name,"|","|",base ) }
 odc:Start()
 DEFAULT cDir := cAppPath()
-? odc:Add( cDir ,,.T.)
+? odc:Add( cDir ,0x11F,.T.)
 while inkey(0) != 27 ; end
 ? "Stopping ... "
 odc:Stop()
@@ -25,5 +26,5 @@ return
 
 
 
-                                                           
+        
                                                            
